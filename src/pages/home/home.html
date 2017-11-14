@@ -1,14 +1,32 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar class="navbar">
+    <ion-title>Reiknvél</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content>
+<section class="all-content">
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <!--<section class="main">
+    <div class="each-currency" *ngFor="let item of items">
+      <label for="item.shortName">{{item.shortName}}</label>
+      <input type="number" name="item.shortName" id="item.shortName" value="{{item.value | number:'1.2-2'}}">
+    </div>
+  </section>-->
+
+  <ion-list>
+
+    <ion-item-sliding #item *ngFor="let i of favorates" class="each-list">
+      <ion-item>
+        <label for="">{{i.name}}</label>
+        <input type="number" name="i.name" id="i.name" value="{{i.visual}}" (input)="changingInput(this,i)" #i.name>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeItemFromFavorites(i)">Fjarlæga</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</section>
 </ion-content>

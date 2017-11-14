@@ -3,9 +3,14 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { ReiknivelService} from './services/reiknivel.service';
+import { ConnectivityService } from './services/connectivity.service';
+
 import { HomePage } from '../pages/home/home';
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers:[ReiknivelService,ConnectivityService]
 })
 export class MyApp {
   rootPage:any = HomePage;
