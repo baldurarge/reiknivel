@@ -1,32 +1,83 @@
 
-<ion-header>
+<ion-header class="bar-custom">
   <ion-navbar class="navbar">
-    <ion-title>Reiknvél</ion-title>
+    <i class="fa fa-check" aria-hidden="true" *ngIf="!showAdding" (click)="changeState()"></i>
+    <i class="fa fa-question" aria-hidden="true" (click)="showIntroAgain()" *ngIf="showAdding"></i>    
+    <ion-title>Myntbreyta</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
-<section class="all-content">
+<ion-slides pager *ngIf="firstTime" class="ion-slider">
+
+  <ion-slide>
+    <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>
+    <h1>Velkomin í Myntubreitir</h1>
+    <img src="../../assets/icons/004-abacus.svg" alt="">
+    <h3>Auðveld leið til að reikna myntur</h3>
+  </ion-slide>
+
+  <ion-slide>
+    <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>
+    <h3>Til að bæta mynt í myntbreytuna íttu á græna hnappinn og veldu frá listanum</h3>    
+    <img src="../../assets/icons/002-plus.svg" alt="">
+  </ion-slide>
+
+  <ion-slide>
+    <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>    
+    <img src="../../assets/icons/001-swipe-left.svg" alt="">    
+    <h3>Til að fjarlæga mynt úr myntubreytunni, svípaðu "swipe" myntuna til vinstri og íttu á fjarlæga</h3>    
+    <button (click)="finishIntro()" class="finish-intro-button">Halda áfram ></button>
+  </ion-slide>
+</ion-slides>
 
 
-  <!--<section class="main">
-    <div class="each-currency" *ngFor="let item of items">
-      <label for="item.shortName">{{item.shortName}}</label>
-      <input type="number" name="item.shortName" id="item.shortName" value="{{item.value | number:'1.2-2'}}">
+
+<section class="all-content" *ngIf="showAdding && !firstTime">
+  <section class="inner-content">
+    <!--<section class="main">
+        <div class="each-currency" *ngFor="let item of items">
+          <label for="item.shortName">{{item.shortName}}</label>
+          <input type="number" name="item.shortName" id="item.shortName" value="{{item.value | number:'1.2-2'}}">
+        </div>
+      </section>-->
+    
+    <ion-list>
+    
+      <ion-item-sliding #item *ngFor="let i of favorates" class="each-list">
+        <ion-item>
+          <label for="">{{i.name}}</label>
+          <input type="number" name="i.name" id="i.name" [(ngModel)]="i.visual" (ngModelChange)="changingInput($event,i)" (click)="inputClicked($event,i)">
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="changeFavorates(i)">Fjarlæga</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <div class="outer-button">
+      <div class="inner-button" (click)="changeState()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </div>
     </div>
-  </section>-->
+  </section>
 
-  <ion-list>
+  
 
-    <ion-item-sliding #item *ngFor="let i of favorates" class="each-list">
-      <ion-item>
-        <label for="">{{i.name}}</label>
-        <input type="number" name="i.name" id="i.name" value="{{i.visual}}" (input)="changingInput(this,i)" #i.name>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="removeItemFromFavorites(i)">Fjarlæga</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+</section>
+
+
+<section class="add-favorates" *ngIf="!showAdding">
+<ion-list>
+
+<ion-item-group *ngFor="let item of items">
+  <ion-item-divider color="light" *ngIf="lastLetter(item)">{{getFirstLetter(item)}}</ion-item-divider>
+  <ion-item>
+    <ion-label>{{item.name}}</ion-label>
+    <ion-checkbox [checked]="item.checked" (click)="changeFavorates(item)"></ion-checkbox>
+  </ion-item>
+</ion-item-group>
+
+</ion-list>
+
 
 </section>
 </ion-content>

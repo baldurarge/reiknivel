@@ -52,10 +52,11 @@ $app-direction: ltr;
 
 
 
+
 $colors: (
   primary:    blue,
-  secondary:  #32db64,
-  danger:     #f53d3d,
+  secondary:  rgb(37, 192, 81),
+  danger:     #E3554F,
   light:      #f4f4f4,
   dark:       #222
 );
@@ -69,6 +70,9 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
     color: white;
   }
 }
+
+
+
 
 
 // App iOS Variables

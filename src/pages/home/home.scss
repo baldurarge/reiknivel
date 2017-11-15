@@ -2,15 +2,29 @@ page-home {
 
 }
 
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('../assets/VarelaRound-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 *{
     box-sizing: border-box;
     margin:0px;
+    font-family: myFont;
 }
 
 h1{
     margin: 0px;
 }
 
+
+
+.all-content{
+    background-image: url('https://i.pinimg.com/736x/4c/4d/57/4c4d57e5af0abdf36412d6fdd6251978--wallpaper-s-wallpaper-for-iphone.jpg');
+    min-height: 100vh;
+    padding: 10px;
+}
 
 .item-inner{
     input{
@@ -21,3 +35,74 @@ h1{
     }
 }
 
+.toolbar-background{
+background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+
+.outer-button{
+    display: flex;
+    justify-content: center;
+}
+
+.inner-button{
+    background-color: map-get($colors, secondary );
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 50px;
+    -webkit-box-shadow: 0px 4px 16px 1px rgba(15,38,2,0.22);
+    -moz-box-shadow: 0px 4px 16px 1px rgba(15,38,2,0.22);
+    box-shadow: 0px 4px 16px 1px rgba(15,38,2,0.22);
+    color: #f3f3f3;
+    height: 50px;
+    width: 50px;
+    
+}
+
+.fa-check{
+    float:right;
+    font-size: 25px;
+    margin-right: 10px;
+    color: #f3f3f3;
+    background: map-get($colors, secondary);
+    padding: 2px;
+    border-radius: 50px;
+}
+
+.fa-question{
+    float:right;
+    font-size: 25px;
+    margin-right: 10px;
+    padding: 2px;
+    border-radius: 50px;
+}
+
+.ion-slider{
+
+    .finish-intro-button{
+        background: map-get($colors, secondary);
+        font-size: 20px;
+        margin-top: 5px;
+        padding-top:6px;
+        padding-bottom: 6px;
+        color: white;
+        border-radius: 5px;
+    }
+    .skip-button{
+        background: transparent;
+        position: absolute;
+        top:20px;
+        right:10px;
+        color: map-get($colors, primary);
+        font-size: 20px;
+    }
+    padding-left: 10px;
+    padding-right: 10px;
+    img{
+        width:30%;
+        margin-top:50px;
+        margin-bottom:50px;
+    }
+}

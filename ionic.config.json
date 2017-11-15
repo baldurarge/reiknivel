@@ -1,6 +1,6 @@
 {
   "name": "reiknivel",
-  "app_id": "",
+  "app_id": "9d72c4ff",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
