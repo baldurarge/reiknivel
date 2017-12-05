@@ -2,7 +2,7 @@
 <ion-header class="bar-custom">
   <ion-navbar class="navbar">
     <i class="fa fa-check" aria-hidden="true" *ngIf="!showAdding" (click)="changeState()"></i>
-    <i class="fa fa-question" aria-hidden="true" (click)="showIntroAgain()" *ngIf="showAdding"></i>    
+   <img src="./assets/icons/lightBulb.svg" alt="" (click)="showIntroAgain()" *ngIf="showAdding" id="lightBulp">
     <ion-title>Myntbreyta</ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,20 +11,20 @@
 
   <ion-slide>
     <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>
-    <h1>Velkomin í Myntubreitir</h1>
-    <img src="../../assets/icons/004-abacus.svg" alt="">
+    <h1>Velkomin í Myntubreytir</h1>
+    <img src="./assets/icons/Scale.svg" alt="">
     <h3>Auðveld leið til að reikna myntur</h3>
   </ion-slide>
 
   <ion-slide>
     <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>
     <h3>Til að bæta mynt í myntbreytuna íttu á græna hnappinn og veldu frá listanum</h3>    
-    <img src="../../assets/icons/002-plus.svg" alt="">
+    <img src="./assets/icons/clickButton.svg" alt="">
   </ion-slide>
 
   <ion-slide>
     <button (click)="finishIntro()" class="finish-intro-button skip-button">Skip</button>    
-    <img src="../../assets/icons/001-swipe-left.svg" alt="">    
+    <img src="./assets/icons/swipe.svg" alt="">    
     <h3>Til að fjarlæga mynt úr myntubreytunni, svípaðu "swipe" myntuna til vinstri og íttu á fjarlæga</h3>    
     <button (click)="finishIntro()" class="finish-intro-button">Halda áfram ></button>
   </ion-slide>
